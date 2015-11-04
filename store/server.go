@@ -50,6 +50,10 @@ func (server *StoreServer) BytesConsumed() int {
   return server.store.bytesConsumed()
 }
 
+func (server *StoreServer) NumTimeSeries() int {
+  return server.store.numTimeSeries()
+}
+
 func (server *StoreServer) Query(w http.ResponseWriter, r *http.Request) {
   body, err := ioutil.ReadAll(io.LimitReader(r.Body, 1048576))
   if err != nil {

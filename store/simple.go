@@ -29,6 +29,10 @@ func (s *SimpleStore) bytesConsumed() int {
   return size
 }
 
+func (s *SimpleStore) numTimeSeries() int {
+  return len(s.series)
+}
+
 func (s *SimpleStore) Put(name string, timestamp uint32, value float64) {
   s.Lock()
   series, ok := s.series[name]
